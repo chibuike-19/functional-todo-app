@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Login from './Pages/Login-SignUp/Login'
+import Home from './Pages/HomePage/Home';
+import SignUp from './Pages/Login-SignUp/SignUp';
+import Todo from './components/todo';
+import PasswordReset from './Pages/passwordReset/passwordReset';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import  PrivateRoute  from './privateRoute'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route exact path='/' element={<Home/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/reset-password' element={<PasswordReset/>}/>
+        <Route path='/sign-up' element={<SignUp/>}/>
+        <Route path='/todo' element={<PrivateRoute/>}>
+          <Route path='/todo' element={<Todo/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  )
 }
-
+ 
 export default App;
