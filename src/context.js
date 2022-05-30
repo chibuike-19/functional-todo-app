@@ -33,7 +33,7 @@ export const AppContext = ({children}) => {
       if (docs.docs.length === 0) {
         await addDoc(collection(db, "users"), {
           uid: user.uid,
-          displayName: user.userName,
+          displayName: user.username || null ,
           authProvider: "google",
           email: user.email,
         });

@@ -64,8 +64,8 @@ const Todo = () => {
         <p>{error}</p>
         <TodoForm onSubmit={onSubmit}/>
         <TodoList/>
-        <div className="flex justify-center">
-            <button onClick={handleLogOut} className='px-4 py-2 mt-3 border-2 rounded-lg bg-secondary text-white'>Log out</button>
+        <div className="flex justify-center pb-4 mt-4">
+            <button onClick={handleLogOut} className='px-4 py-2 border-2 rounded-lg bg-secondary text-white'>Log out</button>
         </div>
         
     </div> 

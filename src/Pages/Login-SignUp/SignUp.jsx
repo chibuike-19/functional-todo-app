@@ -65,7 +65,7 @@ const SignUp = () => {
 
     return ( 
         <div className=" w-full min-h-screen bg-photo ">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-2xl w-fit md:w-lg rounded-md bg-gray-600 opacity-85 p-10">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-2xl w-11/12 sm:w-fit md:w-lg rounded-md bg-gray-600 opacity-85 p-10">
             <h2 className="mb-8 text-center font-poppins text-white text-4xl">Create New Account</h2>
             <p className={errorDisplay()}>{error}</p>
             <form onSubmit={handleSubmit}>
@@ -85,7 +85,7 @@ const SignUp = () => {
                     <input type='password' ref={passwordConfRef} required className="w-full p-1 outline-none border-b-2 text-green-300 peer bg-transparent rounded-sm border-red-200 valid:border-white mb-8" />
                     <label className="absolute top-0 left-0 p-1 text-lg text-white transition-all peer-focus:-top-6 peer-focus:text-sm peer-valid:-top-6 peer-focus:left-0 pointer-events-none">Confirm Password</label>
                 </div>
-                 <div className='flex justify-center mt-2'><button className="border-gray-200 bg-gray-200 text-black px-32 md:px-40 text-lg rounded-2xl focus:bg-gray-600 py-1 border-2">Sign Up</button></div>
+                 <div className='flex justify-center mt-2'><button className="border-gray-200 bg-gray-200 text-black px-10 sm:px-32 md:px-40 text-base sm:text-lg rounded-2xl focus:bg-gray-600 py-1 border-2">Sign Up</button></div>
                 <div className="flex justify-center mt-2"><p className="text-white mt-1">Already have an Account? <Link to='/login' className="text-green-300 ml-1 hover:underline">Sign In</Link></p></div>
             </form>
         </div>
