@@ -22,6 +22,11 @@ const Login = () => {
         
     }
 
+    const GoogleSignUp = async() => {
+        await signInWithGoogle
+        navigate('/todo')
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -47,7 +52,7 @@ const Login = () => {
         <div className='w-full hidden md:flex justify-end'><img className='w-44 pr-4 h-52' src={image} alt='bg'/></div>
         <div className="absolute top-1/2 left-1/2 bg-gray-600 opacity-85 transform -translate-x-1/2 -translate-y-1/2 shadow-2xl md:w-lg w-fit rounded-md p-10">
             <h2 className="mb-8 text-center  text-white text-5xl">Login</h2>
-                <div className=' flex justify-center cursor-pointer' onClick={signInWithGoogle}><span className='md:px-20 px-14 text-lg py-1 flex border-2  text-black bg-gray-200 focus:bg-gray-600 mb-8 rounded-2xl'><FcGoogle className='w-8'/>Sign In with Google</span></div>
+                <div className=' flex justify-center cursor-pointer' onClick={GoogleSignUp}><span className='md:px-20 px-14 text-lg py-1 flex border-2  text-black bg-gray-200 focus:bg-gray-600 mb-8 rounded-2xl'><FcGoogle className='w-8'/>Sign In with Google</span></div>
             <p className={errorDisplay()} >{error}</p>
             <form onSubmit={handleSubmit} className='flex flex-col justify-center'>
                 <div className="relative ">
