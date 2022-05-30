@@ -13,6 +13,7 @@ const Todo = () => {
     const [count, setCount ] = useState(0)
     let navigate = useNavigate()
 
+    const logo = require('../assests/Grouplogo.png')
     useEffect(() => {
         const getData = async() => {
             const q = query(todoRef, where('owner', '==', currentUser.uid), orderBy('timestamp'))
@@ -58,7 +59,7 @@ const Todo = () => {
 
     return ( 
     <div className="min-h-screen font-poppins todo-page">
-        
+        <div className="flex justify-center"><img src={logo} alt='tif-logo' /></div>
         <p className="text-4xl font-semibold text-center text-secondary pt-4">{`Hello,  ${currentUser.displayName} 😁`}</p>
         <p className="text-center pt-2 text-secondary">{countDisplay()}</p>
         <p>{error}</p>

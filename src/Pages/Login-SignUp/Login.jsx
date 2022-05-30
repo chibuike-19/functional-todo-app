@@ -47,11 +47,11 @@ const Login = () => {
     }
 
     return(
-    <div className=" w-full min-h-screen font-poppins bg-photo">
+    <div className=" w-full min-h-max font-poppins bg-photo">
         <div className='w-full hidden md:flex justify-end'><img className='w-44 pr-4 h-52' src={image} alt='bg'/></div>
         <div className="absolute top-1/2 left-1/2 bg-gray-600 opacity-85 transform -translate-x-1/2 -translate-y-1/2 shadow-2xl md:w-lg sm:w-fit w-11/12 rounded-md p-10">
             <h2 className="mb-8 text-center  text-white text-5xl">Login</h2>
-                <div className=' flex justify-center cursor-pointer' onClick={GoogleSignUp}><span className='md:px-20 px-5 sm:px-14 text-lg py-1 flex border-2  text-black bg-gray-200 focus:bg-gray-600 mb-8 rounded-2xl'><FcGoogle className='w-8'/>Sign In with Google</span></div>
+                <div className=' flex justify-center cursor-pointer' onClick={GoogleSignUp}><span className='md:px-20 px-4 text-sm sm:px-14 sm:text-lg py-1 flex border-2  text-black bg-gray-200 focus:bg-gray-600 mb-8 rounded-2xl'><FcGoogle className='w-8'/>Sign In with Google</span></div>
             <p className={errorDisplay()} >{error}</p>
             <form onSubmit={handleSubmit} className='flex flex-col justify-center'>
                 <div className="relative ">
