@@ -23,7 +23,7 @@ const Login = () => {
     }
 
     const GoogleSignUp = async() => {
-        await signInWithGoogle
+        await signInWithGoogle()
         navigate('/todo')
     }
 
