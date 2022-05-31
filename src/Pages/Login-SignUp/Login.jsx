@@ -47,7 +47,7 @@ const Login = () => {
     }
 
     return(
-    <div className=" w-full min-h-max font-poppins bg-photo">
+    <div className=" w-full min-h-screen font-poppins bg-photo">
         <div className='w-full hidden md:flex justify-end'><img className='w-44 pr-4 h-52' src={image} alt='bg'/></div>
         <div className="absolute top-1/2 left-1/2 bg-gray-600 opacity-85 transform -translate-x-1/2 -translate-y-1/2 shadow-2xl md:w-lg sm:w-fit w-11/12 rounded-md p-10">
             <h2 className="mb-8 text-center  text-white text-5xl">Login</h2>

@@ -26,7 +26,7 @@ const PasswordReset = () => {
     return ( 
         <div className="w-full min-h-screen bg-photo">
             <div className="absolute bg-gray-600 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-2xl sm:w-fit w-11/12 md:w-lg rounded-md p-10 ">
-                <h2 className="mb-8 text-center text-white text-4xl sm:text-5xl">Reset Password</h2>
+                <h2 className="mb-8 text-center text-white text-2xl sm:text-5xl">Reset Password</h2>
                 <p className={errorDisplay()}>{error}</p>
                 <div className="relative flex justify-center">
                     <input type='text' ref={emailRef} required className=" text-yellow-500 w-full p-1 rounded-sm peer outline-none border-b-2 bg-transparent border-red-200 valid:border-white mb-8 text-lg "/>
