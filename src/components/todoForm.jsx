@@ -36,7 +36,7 @@ const TodoForm = ({onSubmit}) => {
     return(
         <div className='flex justify-center mt-6'>
             <form onSubmit={handleSubmit}>
-            <input type='text' maxLength='15' value={todo} onChange={(e) => setTodo(e.target.value)} className="w-60 sm:w-72 py-1 px-3 focus:outline-none rounded-xl text-secondary border-2 border-blue-500"/>
+            <input type='text' maxLength='40' value={todo} onChange={(e) => setTodo(e.target.value)} className="w-60 sm:w-72 py-1 px-3 focus:outline-none rounded-xl text-secondary border-2 border-blue-500"/>
             <button className="px-2 py-1 text-sm border-2 border-white ml-3 rounded-lg focus:outline-none focus:text-secondary focus:bg-white text-white bg-secondary" disabled={handleDisable()} >Add Task</button>
             </form>
         </div>

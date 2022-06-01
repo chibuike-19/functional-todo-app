@@ -28,6 +28,7 @@ export const AppContext = ({children}) => {
     try {
       const res = await signInWithPopup(auth, googleProvider);
       const user = res.user;
+    //   querying the database to add the new user to our database
       const q = query(collection(db, "users"), where("uid", "==", user.uid));
       const docs = await getDocs(q);
       if (docs.docs.length === 0) {
