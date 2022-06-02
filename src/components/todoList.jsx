@@ -27,11 +27,17 @@ const TodoList = () => {
     //     return setEdit()
     // }, [edit])
 
-    const handleUpdate = (id, todo) => {
-        setEdit(id)
+    const handleUpdate = (id, complete) => {
+        if(complete === false){
+            setEdit(id)
+        }
+        else{
+            setEdit(null)
+        }
         // setTextEdit(todo)
     }
     const handleEdit = (id, completed) => {
+        completed = false
         updateDoc(doc(db, 'todos', id), {
             todo: textEdit,
             timestamp: edit,
@@ -39,7 +45,6 @@ const TodoList = () => {
         })
         setTextEdit('')
         setEdit(null)
-        completed = false
         // editRef.current.value = ''
         // const edited = [...todos].map(todo => {
         //     if(id === todo.timestamp){
@@ -108,7 +113,7 @@ const TodoList = () => {
                             <div className="grid place-items-center gap-2 w-full">
                                 <input type='text' autoFocus maxLength='40' onChange={(e) => setTextEdit(e.target.value)} placeholder={todo.todo} value={textEdit} className="sm:w-72 w-60 border-2 border-blue-500 shadow-2xl rounded-lg focus:outline-none h-9 py-1 px-3  text-secondary"/>
                            <div className="flex"><button className=" focus:outline-none text-white bg-secondary flex justify ml-2 px-3 py-1 rounded-lg" disabled={textEdit === ''} onClick={() => handleEdit(todo.id, todo.completed)}>Submit Edit</button><button className=" focus:outline-none text-white bg-secondary flex justify ml-2 px-3 py-1 rounded-lg" onClick={() => setEdit(null)}>Go back</button></div></div>
-                        ):(<div className="ml-24"><button className=" text-secondary" onClick={() => handleUpdate(todo.id, todo.todo)}><FaEdit/></button><button className=" text-secondary ml-3" onClick={() => handleDelete(todo.id)}><FaTrashAlt/></button>
+                        ):(<div className="ml-24"><button className=" text-secondary" onClick={() => handleUpdate(todo.id, todo.completed)}><FaEdit/></button><button className=" text-secondary ml-3" onClick={() => handleDelete(todo.id)}><FaTrashAlt/></button>
                         </div>)}</div>
                     </div>
                     )
