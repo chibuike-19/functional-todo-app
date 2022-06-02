@@ -1,6 +1,6 @@
 import { useAuth } from "../context";
 import {FaTrashAlt, FaEdit} from 'react-icons/fa'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { updateDoc, doc, deleteDoc, getDoc } from 'firebase/firestore';
 import { db } from "../firebase";
 
@@ -14,6 +14,23 @@ const TodoList = () => {
     //     setTodos(snapshot.docs.map(doc => doc.data()))
     //     })
     // },[todos])
+
+    // useEffect(() => {
+    //     const setEdit = () => {
+    //         const label = [...todos].filter(todo => {
+    //             if(todo.id === edit){
+    //                 return todo.todo
+    //             }
+    //         })
+    //         setTextEdit(label)
+    //     }
+    //     return setEdit()
+    // }, [edit])
+
+    const handleUpdate = (id, todo) => {
+        setEdit(id)
+        // setTextEdit(todo)
+    }
     const handleEdit = (id, completed) => {
         updateDoc(doc(db, 'todos', id), {
             todo: textEdit,
@@ -89,9 +106,9 @@ const TodoList = () => {
                         <div className={showComplete(todo.completed, todo.id)}><div className="flex items-center gap-4"><div className=" ml-2"><input type='checkbox' onClick={() => toggleComplete(todo.id)} className={checkClose(todo.id)}/></div><div className="sm:max-w-[180px] max-w-[125px]  "><li className={inputClose(todo.id)}>{todo.todo}</li></div></div>
                         {(todo.id === edit) ? (
                             <div className="grid place-items-center gap-2 w-full">
-                                <input type='text' maxLength='40' onChange={(e) => setTextEdit(e.target.value)} className="sm:w-72 w-60 border-2 border-blue-500 shadow-2xl rounded-lg focus:outline-none h-9 py-1 px-3  text-secondary"/>
+                                <input type='text' autoFocus maxLength='40' onChange={(e) => setTextEdit(e.target.value)} placeholder={todo.todo} value={textEdit} className="sm:w-72 w-60 border-2 border-blue-500 shadow-2xl rounded-lg focus:outline-none h-9 py-1 px-3  text-secondary"/>
                            <div className="flex"><button className=" focus:outline-none text-white bg-secondary flex justify ml-2 px-3 py-1 rounded-lg" disabled={textEdit === ''} onClick={() => handleEdit(todo.id, todo.completed)}>Submit Edit</button><button className=" focus:outline-none text-white bg-secondary flex justify ml-2 px-3 py-1 rounded-lg" onClick={() => setEdit(null)}>Go back</button></div></div>
-                        ):(<div className="ml-24"><button className=" text-secondary" onClick={() => setEdit(todo.id)}><FaEdit/></button><button className=" text-secondary ml-3" onClick={() => handleDelete(todo.id)}><FaTrashAlt/></button>
+                        ):(<div className="ml-24"><button className=" text-secondary" onClick={() => handleUpdate(todo.id, todo.todo)}><FaEdit/></button><button className=" text-secondary ml-3" onClick={() => handleDelete(todo.id)}><FaTrashAlt/></button>
                         </div>)}</div>
                     </div>
                     )
